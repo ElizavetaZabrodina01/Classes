@@ -41,28 +41,28 @@ user2.displayInfo();
 class Rectangle {
     constructor(width, height) {
         this.width = width;
-        this.height = height;
+        this._height = height;
     }
 
     get perimeter() {
-        return this.width * 2 + this.height * 2;
+        return this.width * 2 + this._height * 2;
     }
 
-    set _height(value) {
+    set height(value) {
         if(value <= 0) {
-            console.error('Высота не может быть меньше 0 и равной 0');
+            console.error('Высота должна быть больше 0');
         }
         else {
-            this.height = value;
+            this._height = value;
         }
     }
 
-    get _height() {
-        return this.height
+    get height() {
+        return this._height
     }
 }
 
 const newForm = new Rectangle(10, 5);
 console.log(newForm.perimeter);
-newForm._height = -3;
-console.log(newForm._height);
+newForm.height = -3;
+console.log(newForm.height);
